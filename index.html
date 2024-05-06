@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDW KELAS B_2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .footer {
+        bottom: 0;
+    }
+
+    .images {
+        margin-bottom: 20px; /* Memberikan jarak bawah antara elemen .images dan elemen footer */
+    }
+    
+    /* Atau, jika Anda ingin memberikan jarak khusus hanya pada elemen img */
+    .images img {
+        margin-bottom: 20px; /* Memberikan jarak bawah antara setiap gambar dan elemen footer */
+    }
+    .alert-button {
+        top: 20;
+    }
+</style>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">A Day In My Live</h1>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a> 
+                <a href="aday.html" class="nav-link">Daily</a>   
+                <a href="hobi.html" class="nav-link">Hobbies</a>
+                <div class="dropdown"> <!-- Tambahkan dropdown di sini -->
+                    <a href="#" id="nav-favourite" class="nav-link">
+                        Favourite <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content"> <!-- Tambahkan dropdown content di sini -->
+                        <a href="Food.html">Food</a>
+                        <a href="Music.html">Music</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <div class="greeting">
+                <p id="greeting"></p>
+                <p id="current-time"></p>
+                <p id="current-date"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS -->
+<style>
+    .carousel img {
+        width: 100%;
+        height: 200px; /* Sesuaikan tinggi sesuai kebutuhan */
+        object-fit: cover; /* Atur gambar agar proporsi aspeknya tetap */
+    }
+
+    .carousel-container {
+        position: relative;
+    }
+
+    .carousel-buttons {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .prev,
+    .next {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.7);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+
+<!-- HTML -->
+<section class="images">
+    <div class="container">
+        <h2>Nama Mohd Nabigh Rifqi Nim 20220140067</h2>
+        <h2>......................................</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <img src="https://thesatanictemple.com/cdn/shop/files/unnamed_07042216-b33e-439d-983c-c32d13c2b9eb.jpg" alt="Satanic">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8fA%3D%3D" alt="Baphomet">
+                <img src="https://wallpapercrafter.com/desktop2/798031-Aero-Creative-Beautiful-Summer-Green-Grass-Tree.jpg" alt="The Satanic Temple">
+                <img src="https://thesatanictemple.com/cdn/shop/files/unnamed_07042216-b33e-439d-983c-c32d13c2b9eb.jpg" alt="Satanic">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8fA%3D%3D" alt="Baphomet">
+                <img src="https://wallpapercrafter.com/desktop2/798031-Aero-Creative-Beautiful-Summer-Green-Grass-Tree.jpg" alt="The Satanic Temple">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev" onclick="prevSlide()">&#10094; Prev</button>
+                <button class="next" onclick="nextSlide()">Next &#10095;</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Tombol Alert -->
+    <button class="alert-button" onclick="showAlert()">About</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Pengembangan Desain Web - 2024 - kelas B</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/akun_instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/akun_linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/akun_github"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for real-time greetings, current time, and date
+        function updateTimeAndDate() {
+            var today = new Date();
+            var currentHour = today.getHours();
+            var greetingsElement = document.getElementById('greeting');
+            var currentTimeElement = document.getElementById('current-time');
+            var currentDateElement = document.getElementById('current-date');
+            var greetings = '';
+
+            if (currentHour < 12) {
+                greetings = 'Hai Selamat Pagi! ☀️';
+            } else if (currentHour < 18) {
+                greetings = 'Hai Selamat Siang! 🌤️';
+            } else if (currentHour < 20) {
+                greetings = 'Hai Selamat Sore! 🌥️';
+            } else {
+                greetings = 'Hai Selamat Malam! 🌑';
+            }
+
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var currentDate = today.toLocaleDateString('id-ID', options);
+            var currentTime = today.toLocaleTimeString();
+
+            greetingsElement.innerText = greetings;
+            currentTimeElement.innerText = currentTime;
+            currentDateElement.innerText = currentDate;
+        }
+
+        updateTimeAndDate();
+        setInterval(updateTimeAndDate, 1000);
+
+        // Fungsi untuk menampilkan alert
+        function showAlert() {
+            alert("Hai! Ini adalah alert dari tombol.");
+        }
+
+        // Fungsi untuk menggeser ke slide berikutnya
+        function nextSlide() {
+            $('.carousel').slick('slickNext');
+        }
+
+        // Fungsi untuk menggeser ke slide sebelumnya
+        function prevSlide() {
+            $('.carousel').slick('slickPrev');
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+     <script src="script.js"></script>
+</body>
+</html>

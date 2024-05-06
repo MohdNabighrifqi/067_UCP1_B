@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDW KELAS B_2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        /* Custom CSS for this page */
+        .greetings {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center; /* Posisikan teks ke tengah */
+        }
+        
+        .carousel-container {
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel {
+            display:block;
+            transition: transform 0.5s ease;
+        }
+        
+        .card {
+            padding: 5%;
+            box-sizing: border-box;
+            text-align: center; /* Posisikan gambar ke tengah */
+        }
+        
+        .card img {
+            width: 100%; /* Ubah ukuran gambar sesuai kebutuhan */
+            border-radius: 8px;
+            object-position: center;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgb(47, 65, 100); /* Warna ikon */
+            background-color: rgba(255, 255, 255, 0.5); /* Warna latar belakang */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 5%; /* Jarak dari kiri */
+        }
+
+        .next {
+            right: 5%; /* Jarak dari kanan */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">A Day In My Live</h1>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a> 
+                <a href="aday.html" class="nav-link">Daily</a>   
+                <a href="hobi.html" class="nav-link">Hobbies</a>
+                <div class="dropdown"> <!-- Tambahkan dropdown di sini -->
+                    <a href="#" id="nav-favourite" class="nav-link">
+                        Favourite <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content"> <!-- Tambahkan dropdown content di sini -->
+                        <a href="Food.html">Food</a>
+                        <a href="Music.html">Music</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <div class="greeting">
+                <p id="greeting"></p>
+                <p id="current-time"></p>
+                <p id="current-date"></p>
+            </div>
+        </div>
+    </section>
+    <section class="home" id="home">
+        <div class="container">
+            <div class="text">
+                <div class="carousel-container">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <div class="carousel">
+                        <div class="card">
+                            <img src="https://assets-a1.kompasiana.com/items/album/2021/03/16/universitas-muhammadiyah-yogyakarta-kirim-59-mahasiswa-ke-17-negara-6050bbdbd541df587e7d6132.jpg" alt="Image 1">
+                        </div>
+                        <div class="card">
+                            <img src="https://images5.alphacoders.com/816/816149.jpg" alt="Image 2">
+                        </div>
+                        <div class="card">
+                            <img src="https://cdn.pixabay.com/photo/2020/08/15/03/19/billiards-5489526_1280.jpg" alt="Image 3">
+                        </div>
+                    </div>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Pengembangan Desain Web - 2024 - kelas B</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/akun_instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/akun_linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/akun_github"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // JavaScript for real-time greetings, current time, and date
+        function updateTimeAndDate() {
+            var today = new Date();
+            var currentHour = today.getHours();
+            var greetingsElement = document.getElementById('greeting');
+            var currentTimeElement = document.getElementById('current-time');
+            var currentDateElement = document.getElementById('current-date');
+            var greetings = '';
+
+            if (currentHour < 12) {
+                greetings = 'Hai Selamat Pagi! ☀️';
+            } else if (currentHour < 18) {
+                greetings = 'Hai Selamat Siang! 🌤️';
+            } else if (currentHour < 20) {
+                greetings = 'Hai Selamat Sore! 🌥️';
+            } else {
+                greetings = 'Hai Selamat Malam! 🌑';
+            }
+
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var currentDate = today.toLocaleDateString('id-ID', options);
+            var currentTime = today.toLocaleTimeString();
+
+            greetingsElement.innerText = greetings;
+            currentTimeElement.innerText = currentTime;
+            currentDateElement.innerText = currentDate;
+        }
+
+        updateTimeAndDate();
+        setInterval(updateTimeAndDate, 1000);
+
+        // JavaScript for carousel
+        var slideIndex = 0;
+
+        function showSlide() {
+            var slides = document.querySelectorAll('.card');
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlide();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlide();
+        }
+
+        showSlide();
+    </script>
+</body>
+
+</html>

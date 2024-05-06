@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDW KELAS B_2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom CSS for this page */
+        h2 {
+            font-size: 40px;
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .circle-container {
+        display: flex;
+        justify-content: space-around;
+        }
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    overflow: hidden; /* Mengatur gambar agar tidak keluar dari lingkaran */
+}
+
+.circle img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.circle:hover {
+            transform: scale(1.1);
+        }
+       
+    </style>
+</head>
+<header class="navbar">
+    <div class="container">
+        <h1 class="logo">A Day In My Live</h1>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Home</a> 
+            <a href="aday.html" class="nav-link">Daily</a>   
+            <a href="hobi.html" class="nav-link">Hobbies</a>
+            <div class="dropdown"> <!-- Tambahkan dropdown di sini -->
+                <a href="#" id="nav-favourite" class="nav-link">
+                    Favourite <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content"> <!-- Tambahkan dropdown content di sini -->
+                    <a href="Food.html">Food</a>
+                    <a href="Music.html">Music</a>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <div class="greeting">
+                <p id="greeting"></p>
+                <p id="current-time"></p>
+                <p id="current-date"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <h2>MY HOBBIES</h2>
+    <div class="circle-container">
+        <div class="circle">
+            <img src="https://cdn-icons-png.flaticon.com/512/2780/2780137.png" />
+        </div>
+        <div class="circle">
+            <img src="data:image/png;base64,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" />
+        </div>
+        <div class="circle">
+            <img src="https://cdn-icons-png.flaticon.com/512/859/859354.png" />
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Pengembangan Desain Web - 2024 - kelas B</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/akun_instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/akun_linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/akun_github"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script untuk menampilkan waktu -->
+    <script>
+        // JavaScript for real-time greetings, current time, and date
+  function updateTimeAndDate() {
+    var today = new Date();
+    var currentHour = today.getHours();
+    var greetingsElement = document.getElementById('greeting');
+    var currentTimeElement = document.getElementById('current-time');
+    var currentDateElement = document.getElementById('current-date');
+    var greetings = '';
+
+    if (currentHour < 12) {
+        greetings = 'Hai Selamat Pagi! ☀️';
+    } else if (currentHour < 18) {
+        greetings = 'Hai Selamat Siang! 🌤️';
+    } else if (currentHour < 20) {
+        greetings = 'Hai Selamat Sore! 🌥️';
+    } else {
+        greetings = 'Hai Selamat Malam! 🌑';
+    }
+
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var currentDate = today.toLocaleDateString('id-ID', options);
+    var currentTime = today.toLocaleTimeString();
+
+    greetingsElement.innerText = greetings;
+    currentTimeElement.innerText = currentTime;
+    currentDateElement.innerText = currentDate;
+}
+
+updateTimeAndDate();
+setInterval(updateTimeAndDate, 1000);
+    </script>
+
+</body>
+</html>

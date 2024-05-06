@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDW KELAS B_2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Disney Songs</title>
+    <style>
+        /* CSS untuk styling */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .link-audio {
+            flex: 1 0 45%; /* Mengatur lebar item audio */
+        }
+        .link-audio h6 {
+            margin-bottom: 10px;
+        }
+        .link-audio iframe {
+            border-radius: 12px;
+            width: 100%;
+            height: 352px;
+        }
+    </style>
+</head>
+<header class="navbar">
+    <div class="container">
+        <h1 class="logo">A Day In My Live</h1>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Home</a> 
+            <a href="aday.html" class="nav-link">Daily</a>   
+            <a href="hobi.html" class="nav-link">Hobbies</a>
+            <div class="dropdown"> <!-- Tambahkan dropdown di sini -->
+                <a href="#" id="nav-favourite" class="nav-link">
+                    Favourite <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content"> <!-- Tambahkan dropdown content di sini -->
+                    <a href="Food.html">Food</a>
+                    <a href="Music.html">Music</a>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<body>
+
+    <section class="header">
+        <div class="container">
+            <div class="greeting">
+                <p id="greeting"></p>
+                <p id="current-time"></p>
+                <p id="current-date"></p>
+            </div>
+        </div>
+    </section>
+
+<section class="Audio" id="Audio">
+    <div class="container">
+        <div class="row-textaudio">
+            <h4> SONG </h4>
+            <p class="text-muted lead"> My favorite song </p>
+        </div>
+        <div class="row">
+            <div class="link-audio">
+                <h6>Pamungkas</h6>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/30WzWPV3Zi5ZJoSoftU30f?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="link-audio">
+                <h6>TyaEdros</h6>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7cEDvz16WZV9zu6T1Y1POD?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="link-audio">
+                <h6>Tate McRae</h6>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4l0RmWt52FxpVxMNni6i63?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="link-audio">
+                <h6>The Panturas X Feast.</h6>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7ywPDpN6mmGK8bqTH1Bgxf?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    // JavaScript for real-time greetings, current time, and date
+function updateTimeAndDate() {
+var today = new Date();
+var currentHour = today.getHours();
+var greetingsElement = document.getElementById('greeting');
+var currentTimeElement = document.getElementById('current-time');
+var currentDateElement = document.getElementById('current-date');
+var greetings = '';
+
+if (currentHour < 12) {
+    greetings = 'Hai Selamat Pagi! ☀️';
+} else if (currentHour < 18) {
+    greetings = 'Hai Selamat Siang! 🌤️';
+} else if (currentHour < 20) {
+    greetings = 'Hai Selamat Sore! 🌥️';
+} else {
+    greetings = 'Hai Selamat Malam! 🌑';
+}
+
+var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+var currentDate = today.toLocaleDateString('id-ID', options);
+var currentTime = today.toLocaleTimeString();
+
+greetingsElement.innerText = greetings;
+currentTimeElement.innerText = currentTime;
+currentDateElement.innerText = currentDate;
+}
+
+updateTimeAndDate();
+setInterval(updateTimeAndDate, 1000);
+
+</script>
+</body>
+</html>

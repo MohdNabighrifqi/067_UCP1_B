@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDW KELAS B_2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .images {
+        margin-bottom: 20px; /* Memberikan jarak bawah antara elemen .images dan elemen footer */
+    }
+    
+    /* Atau, jika Anda ingin memberikan jarak khusus hanya pada elemen img */
+    .images img {
+        margin-bottom: 20px; /* Memberikan jarak bawah antara setiap gambar dan elemen footer */
+    }
+    
+    </style>
+    <!-- Navbar -->
+      <header class="navbar">
+        <div class="container">
+            <h1 class="logo">A Day In My Live</h1>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a> 
+                <a href="aday.html" class="nav-link">Daily</a>   
+                <a href="hobi.html" class="nav-link">Hobbies</a>
+                <div class="dropdown"> <!-- Tambahkan dropdown di sini -->
+                    <a href="#" id="nav-favourite" class="nav-link">
+                        Favourite <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content"> <!-- Tambahkan dropdown content di sini -->
+                        <a href="Food.html">Food</a>
+                        <a href="Music.html">Music</a>
+                    </div>
+                </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Header -->
+    <header>
+    <section class="header">
+        <div class="container">
+            <div class="greeting">
+                <p id="greeting"></p>
+                <p id="current-time"></p>
+                <p id="current-date"></p>
+            </div>
+        </div>
+    </section>
+</header>
+
+    <section class="video" id="Video">
+                <div class="text-vidio">
+                    <h1> The Perfect Food </h1>
+                    <p>My Either One Favourite Food</p>
+                </div>
+            </div>
+            <div class="row-video">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Beef Steak</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ivxgebDK0iQ?si=HAKWsY0EzlkEAfcz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="images">
+        <div class="container">
+            <div class="image-container">
+                <img src="https://c4.wallpaperflare.com/wallpaper/358/377/179/meat-food-steak-wood-wallpaper-preview.jpg" alt="Satanic">
+                <img src="https://c4.wallpaperflare.com/wallpaper/126/339/719/sashimi-seafood-food-meat-wallpaper-preview.jpg" alt="Baphomet">
+                <img src="https://t4.ftcdn.net/jpg/06/03/48/49/360_F_603484951_A13kUcg92CWUdsjidaFHyX734tR72oiM.jpg" alt="The Satanic Temple">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Pengembangan Desain Web - 2024 - kelas B</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/akun_instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/akun_linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/akun_github"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for real-time greetings, current time, and date
+function updateTimeAndDate() {
+    var today = new Date();
+    var currentHour = today.getHours();
+    var greetingsElement = document.getElementById('greeting');
+    var currentTimeElement = document.getElementById('current-time');
+    var currentDateElement = document.getElementById('current-date');
+    var greetings = '';
+
+    if (currentHour < 12) {
+        greetings = 'Hai Selamat Pagi! ☀️';
+    } else if (currentHour < 18) {
+        greetings = 'Hai Selamat Siang! 🌤️';
+    } else if (currentHour < 20) {
+        greetings = 'Hai Selamat Sore! 🌥️';
+    } else {
+        greetings = 'Hai Selamat Malam! 🌑';
+    }
+
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var currentDate = today.toLocaleDateString('id-ID', options);
+    var currentTime = today.toLocaleTimeString();
+
+    greetingsElement.innerText = greetings;
+    currentTimeElement.innerText = currentTime;
+    currentDateElement.innerText = currentDate;
+}
+
+updateTimeAndDate();
+setInterval(updateTimeAndDate, 1000);
+</script>
+</html>
